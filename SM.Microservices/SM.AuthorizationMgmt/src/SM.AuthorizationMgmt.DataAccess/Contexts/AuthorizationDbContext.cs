@@ -34,10 +34,10 @@ namespace SM.AuthorizationMgmt.DataAccess.Contexts
             if (!optionsBuilder.IsConfigured)
             {
                 string machineName = Environment.MachineName;
-                base.OnConfiguring(optionsBuilder.UseNpgsql(_configuration.GetConnectionString("PostgreContext")));
+                base.OnConfiguring(optionsBuilder.UseNpgsql(_configuration.GetConnectionString("Postgres")));
             }
             //optionsBuilder.UseLowerCaseNamingConvention();
-            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("PostgreContext"), x => x.MigrationsHistoryTable("__EFMigrationsHistory", "authorization"));
+            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("Postgres"), x => x.MigrationsHistoryTable("__EFMigrationsHistory", "authorization"));
 
             _options = optionsBuilder.Options;
         }

@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using SM.Core.Common.Configure;
 using SM.Core.DataAccess.Contexts;
+using SM.Core.Services.EntityChangeServices;
 using SM.Core.Utilities.Security.Jwt;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace SM.Core.Extensions
 {
@@ -13,14 +16,39 @@ namespace SM.Core.Extensions
     {
         public static void AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IProjectContext, ProjectDbContext>();
+
+            //services.AddSingleton<IProjectContext, ProjectDbContext>();
             services.AddTransient<ITokenHelper, JwtHelper>();
+            services.AddScoped<IEntityChangeServices, EntityChangeServices>();
+
+            var capConfig = configuration.GetSection("CapConfig").Get<CapConfig>();
+            services.AddCap(options =>
+            {
+                options.UsePostgreSql(sqlOptions =>
+                {
+                    sqlOptions.ConnectionString = configuration.GetConnectionString("Postgres");
+                    sqlOptions.Schema = "authorization";
+                });
+                options.UseRabbitMQ(rabbitMqOptions =>
+                {
+                    rabbitMqOptions.ConnectionFactoryOptions = connectionFactory =>
+                    {
+                        connectionFactory.Ssl.Enabled = capConfig.SslEnable;
+                        connectionFactory.HostName = capConfig.HostName;
+                        connectionFactory.UserName = capConfig.UserName;
+                        connectionFactory.Password = capConfig.Password;
+                        connectionFactory.Port = capConfig.Port;
+                    };
+                });
+                options.UseDashboard(otp => { otp.PathMatch = "/MyCap"; });
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            });
         }
 
-        public static void AddMediator(this IServiceCollection services, Type assemblyType)
-        {
-            services.AddMediatR(assemblyType.Assembly);
-        }
+        //public static void AddMediator(this IServiceCollection services, Type assemblyType)
+        //{
+        //    services.AddMediatR(assemblyType.Assembly);
+        //}
 
         //public static IServiceCollection AddDistributedCacheProvider(this IServiceCollection services, IConfiguration configuration)
         //{

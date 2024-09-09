@@ -1,3 +1,7 @@
+using SM.AuthorizationMgmt.Api;
+using SM.AuthorizationMgmt.Business;
+using SM.Core.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddStartupRepository(builder.Configuration);
+builder.Services.AddStartupServices();
+builder.Services.AddBusinessStartup();
 
 var app = builder.Build();
 
