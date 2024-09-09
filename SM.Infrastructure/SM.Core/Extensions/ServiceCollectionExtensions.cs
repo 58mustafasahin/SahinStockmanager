@@ -1,10 +1,8 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SM.Core.Common.Configure;
-using SM.Core.DataAccess.Contexts;
 using SM.Core.Services.EntityChangeServices;
 using SM.Core.Utilities.Security.Jwt;
 using System.Text;
@@ -16,8 +14,6 @@ namespace SM.Core.Extensions
     {
         public static void AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
-
-            //services.AddSingleton<IProjectContext, ProjectDbContext>();
             services.AddTransient<ITokenHelper, JwtHelper>();
             services.AddScoped<IEntityChangeServices, EntityChangeServices>();
 
@@ -44,11 +40,6 @@ namespace SM.Core.Extensions
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
             });
         }
-
-        //public static void AddMediator(this IServiceCollection services, Type assemblyType)
-        //{
-        //    services.AddMediatR(assemblyType.Assembly);
-        //}
 
         //public static IServiceCollection AddDistributedCacheProvider(this IServiceCollection services, IConfiguration configuration)
         //{
