@@ -34,14 +34,14 @@ namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Commands
 
             public async Task<DataResult<AuthResultDto>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
             {
-                if (request.Password.Equals(request.ConfirmPassword, StringComparison.OrdinalIgnoreCase))
+                if (!request.Password.Equals(request.ConfirmPassword, StringComparison.OrdinalIgnoreCase))
                     return new ErrorDataResult<AuthResultDto>(Messages.PasswordsDoNotMatch);
 
-                var citizenIdCheck = await _userRepository.GetAsync(w => w.Status && w.CitizenId == request.CitizenId && w.CitizenId != 0);
-                if (citizenIdCheck is not null)
+                var existCitizenId = await _userRepository.Query().AnyAsync(w => w.Status && w.CitizenId == request.CitizenId && w.CitizenId != 0);
+                if (existCitizenId)
                     return new ErrorDataResult<AuthResultDto>(Messages.CitizenIdAlreadyExist);
 
-                var existEmail = await _userRepository.Query().AnyAsync(x => x.Email.Equals(request.Email, StringComparison.CurrentCultureIgnoreCase));
+                var existEmail = await _userRepository.Query().AnyAsync(x => request.Email.Equals(x.Email, StringComparison.CurrentCultureIgnoreCase));
                 if (existEmail)
                     return new ErrorDataResult<AuthResultDto>(Messages.EmailAlreadyExist);
 

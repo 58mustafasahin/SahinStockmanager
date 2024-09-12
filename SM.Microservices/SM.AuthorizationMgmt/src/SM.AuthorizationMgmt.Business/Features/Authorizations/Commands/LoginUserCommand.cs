@@ -26,11 +26,7 @@ namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Commands
             public async Task<DataResult<AuthResultDto>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
             {
                 var user = await _userRepository.GetAsync(x => x.Username == request.Username);
-                if (user is not null)
-                    return new ErrorDataResult<AuthResultDto>(Messages.UserNotFound);
-
-                var passwordMatchResult = HashingHelper.VerifyPasswordHash(request.Password, user.PasswordSalt, user.PasswordHash);
-                if (!passwordMatchResult)
+                if (user is null || !HashingHelper.VerifyPasswordHash(request.Password, user.PasswordSalt, user.PasswordHash))
                     return new ErrorDataResult<AuthResultDto>(Messages.UsernameOrPasswordIsWrong);
 
                 var token = _authService.GenerateToken(user);
