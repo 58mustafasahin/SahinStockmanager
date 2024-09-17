@@ -2,6 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Npgsql;
+using SM.Core.ApiDoc;
 using SM.Core.Common.Configure;
 using SM.Core.Services.EntityChangeServices;
 using SM.Core.Utilities.Security.Jwt;
@@ -22,7 +25,7 @@ namespace SM.Core.Extensions
             {
                 options.UsePostgreSql(sqlOptions =>
                 {
-                    sqlOptions.ConnectionString = configuration.GetConnectionString("Postgres");
+                    sqlOptions.DataSource = NpgsqlDataSource.Create(configuration.GetConnectionString("Postgres"));
                     sqlOptions.Schema = "authorization";
                 });
                 options.UseRabbitMQ(rabbitMqOptions =>
@@ -64,6 +67,20 @@ namespace SM.Core.Extensions
 
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
+
+            services.AddSwaggerGen(c =>
+            {
+                c.OperationFilter<AddAuthHeaderOperationFilter>();
+                c.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
+                {
+                    Description = "`Token only!!!` - without `Bearer_` prefix",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Scheme = "bearer"
+                });
+            });
+
             var tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
             services.Configure<TokenOptions>(configuration.GetSection("TokenOptions"));
 
