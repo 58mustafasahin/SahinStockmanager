@@ -13,23 +13,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SM.ProductMgmt", "SM.Produc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8B126DB9-A38A-4DFD-BF36-381364DAFBF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.ProductMgmt.Domain", "SM.Microservices\SM.ProductMgmt\src\SM.ProductMgmt.Domain\SM.ProductMgmt.Domain.csproj", "{2687F10B-4FE3-4E36-A1DB-5E4D4FF26B6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.ProductMgmt.Domain", "SM.Microservices\SM.ProductMgmt\src\SM.ProductMgmt.Domain\SM.ProductMgmt.Domain.csproj", "{2687F10B-4FE3-4E36-A1DB-5E4D4FF26B6E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SM.AuthorizationMgmt", "SM.AuthorizationMgmt", "{53B8A3D1-00BC-42A3-BC4B-38844A943944}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2D501B34-1810-41E7-9942-ACC99BA44B7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.AuthorizationMgmt.Domain", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.Domain\SM.AuthorizationMgmt.Domain.csproj", "{1101DC4D-E889-4AAA-8C80-1DD0A9C3F138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.AuthorizationMgmt.Domain", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.Domain\SM.AuthorizationMgmt.Domain.csproj", "{1101DC4D-E889-4AAA-8C80-1DD0A9C3F138}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.AuthorizationMgmt.DataAccess", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.DataAccess\SM.AuthorizationMgmt.DataAccess.csproj", "{D992D701-FA4A-435B-B3F1-B01593B0E8A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.AuthorizationMgmt.DataAccess", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.DataAccess\SM.AuthorizationMgmt.DataAccess.csproj", "{D992D701-FA4A-435B-B3F1-B01593B0E8A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.AuthorizationMgmt.Business", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.Business\SM.AuthorizationMgmt.Business.csproj", "{51C5AD56-7A18-4807-B31A-2B400E781182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.AuthorizationMgmt.Business", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.Business\SM.AuthorizationMgmt.Business.csproj", "{51C5AD56-7A18-4807-B31A-2B400E781182}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.AuthorizationMgmt.Api", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.Api\SM.AuthorizationMgmt.Api.csproj", "{400931E6-AD41-4A0A-9448-94844598B137}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.AuthorizationMgmt.Api", "SM.Microservices\SM.AuthorizationMgmt\src\SM.AuthorizationMgmt.Api\SM.AuthorizationMgmt.Api.csproj", "{400931E6-AD41-4A0A-9448-94844598B137}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CD3A36FF-8B53-4A95-B75A-CA8CEC64758A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.AuthorizationMgmt.Business.Test", "SM.Microservices\SM.AuthorizationMgmt\test\SM.AuthorizationMgmt.Business.Test\SM.AuthorizationMgmt.Business.Test.csproj", "{23FB786E-E60B-4A9D-8EA8-BAB9F0D11D05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.AuthorizationMgmt.Business.Test", "SM.Microservices\SM.AuthorizationMgmt\test\SM.AuthorizationMgmt.Business.Test\SM.AuthorizationMgmt.Business.Test.csproj", "{23FB786E-E60B-4A9D-8EA8-BAB9F0D11D05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.ProductMgmt.DataAccess", "SM.Microservices\SM.ProductMgmt\src\SM.ProductMgmt.DataAccess\SM.ProductMgmt.DataAccess.csproj", "{E53CE041-A295-4FF1-95B6-3FC17C287E75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.ProductMgmt.Business", "SM.Microservices\SM.ProductMgmt\src\SM.ProductMgmt.Business\SM.ProductMgmt.Business.csproj", "{F103D095-7DBD-478E-A7CF-E7B32EE697CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.ProductMgmt.Api", "SM.Microservices\SM.ProductMgmt\src\SM.ProductMgmt.Api\SM.ProductMgmt.Api.csproj", "{89435DD9-4199-4CF7-B8C8-959DB15C0FAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.ProductMgmt.Business.Test", "SM.Microservices\SM.ProductMgmt\test\SM.ProductMgmt.Business.Test\SM.ProductMgmt.Business.Test.csproj", "{AE3C5075-41D5-4DC4-837F-DB0CF4B54047}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +73,22 @@ Global
 		{23FB786E-E60B-4A9D-8EA8-BAB9F0D11D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23FB786E-E60B-4A9D-8EA8-BAB9F0D11D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23FB786E-E60B-4A9D-8EA8-BAB9F0D11D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E53CE041-A295-4FF1-95B6-3FC17C287E75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E53CE041-A295-4FF1-95B6-3FC17C287E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E53CE041-A295-4FF1-95B6-3FC17C287E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E53CE041-A295-4FF1-95B6-3FC17C287E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F103D095-7DBD-478E-A7CF-E7B32EE697CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F103D095-7DBD-478E-A7CF-E7B32EE697CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F103D095-7DBD-478E-A7CF-E7B32EE697CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F103D095-7DBD-478E-A7CF-E7B32EE697CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89435DD9-4199-4CF7-B8C8-959DB15C0FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89435DD9-4199-4CF7-B8C8-959DB15C0FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89435DD9-4199-4CF7-B8C8-959DB15C0FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89435DD9-4199-4CF7-B8C8-959DB15C0FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3C5075-41D5-4DC4-837F-DB0CF4B54047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3C5075-41D5-4DC4-837F-DB0CF4B54047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3C5075-41D5-4DC4-837F-DB0CF4B54047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3C5075-41D5-4DC4-837F-DB0CF4B54047}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +106,10 @@ Global
 		{400931E6-AD41-4A0A-9448-94844598B137} = {2D501B34-1810-41E7-9942-ACC99BA44B7C}
 		{CD3A36FF-8B53-4A95-B75A-CA8CEC64758A} = {53B8A3D1-00BC-42A3-BC4B-38844A943944}
 		{23FB786E-E60B-4A9D-8EA8-BAB9F0D11D05} = {CD3A36FF-8B53-4A95-B75A-CA8CEC64758A}
+		{E53CE041-A295-4FF1-95B6-3FC17C287E75} = {8B126DB9-A38A-4DFD-BF36-381364DAFBF7}
+		{F103D095-7DBD-478E-A7CF-E7B32EE697CE} = {8B126DB9-A38A-4DFD-BF36-381364DAFBF7}
+		{89435DD9-4199-4CF7-B8C8-959DB15C0FAA} = {8B126DB9-A38A-4DFD-BF36-381364DAFBF7}
+		{AE3C5075-41D5-4DC4-837F-DB0CF4B54047} = {7F0A6304-8886-4F36-913C-B8512D0CD7B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33233196-3C59-441A-A11E-6758ED6507CE}

@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\SM.Infrastructure\SM.Core\SM.Core.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SM.ProductMgmt.Business\SM.ProductMgmt.Business.csproj" />
   </ItemGroup>
 
 </Project>

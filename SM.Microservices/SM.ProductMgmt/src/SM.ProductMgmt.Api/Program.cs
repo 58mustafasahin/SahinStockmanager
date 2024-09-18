@@ -1,5 +1,5 @@
-using SM.AuthorizationMgmt.Api;
-using SM.AuthorizationMgmt.Business;
+using SM.ProductMgmt.Api;
+using SM.ProductMgmt.Business;
 using SM.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);

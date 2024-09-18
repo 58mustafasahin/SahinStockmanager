@@ -1,33 +1,32 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SM.AuthorizationMgmt.Business.Services.Authorizations;
-using SM.AuthorizationMgmt.DataAccess.Abstract;
-using SM.AuthorizationMgmt.DataAccess.Concrete.EntityFramework;
-using SM.AuthorizationMgmt.DataAccess.Contexts;
+using SM.ProductMgmt.DataAccess.Abstract;
+using SM.ProductMgmt.DataAccess.Concrete.EntityFramework;
+using SM.ProductMgmt.DataAccess.Contexts;
 
-namespace SM.AuthorizationMgmt.Api
+namespace SM.ProductMgmt.Api
 {
     public static class Startup
     {
         public static void AddStartupRepository(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<AuthorizationDbContext>(options =>
+            services.AddDbContext<ProductDbContext>(options =>
             {
                 options.UseNpgsql(configuration["ConnectionStrings:Postgres"], x =>
                 {
-                    x.MigrationsAssembly("SM.AuthorizationMgmt.DataAccess");
+                    x.MigrationsAssembly("SM.ProductMgmt.DataAccess");
                 });
 
                 options.LogTo(Console.WriteLine, LogLevel.Information);
             });
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
         }
 
         public static void AddStartupServices(this IServiceCollection services)
         {
-            services.AddScoped<IAuthService, AuthService>();
+
         }
     }
 }
