@@ -8,7 +8,7 @@ using SM.ProductMgmt.Domain.Concrete;
 
 namespace SM.ProductMgmt.Business.Features.Products.Commands
 {
-    public class CreateProductCommand : IRequest<DataResult<GetProductDto>>
+    public class CreateProductCommand : IRequest<IResult>
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -16,7 +16,7 @@ namespace SM.ProductMgmt.Business.Features.Products.Commands
         public int StockQuantity { get; set; }
         public int Unit { get; set; }
 
-        public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, DataResult<GetProductDto>>
+        public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, IResult>
         {
             private readonly IProductRepository _productRepository;
 
@@ -25,7 +25,7 @@ namespace SM.ProductMgmt.Business.Features.Products.Commands
                 _productRepository = productRepository;
             }
 
-            public async Task<DataResult<GetProductDto>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
             {
                 var product = request.Adapt<Product>();
                 _productRepository.Add(product);

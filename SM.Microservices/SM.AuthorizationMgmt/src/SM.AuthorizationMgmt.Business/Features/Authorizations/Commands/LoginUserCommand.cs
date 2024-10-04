@@ -8,12 +8,12 @@ using SM.Core.Utilities.Security.Hashing;
 
 namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Commands
 {
-    public class LoginUserCommand : IRequest<DataResult<AuthResultDto>>
+    public class LoginUserCommand : IRequest<IResult>
     {
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, DataResult<AuthResultDto>>
+        public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, IResult>
         {
             private readonly IUserRepository _userRepository;
             private readonly IAuthService _authService;
@@ -23,7 +23,7 @@ namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Commands
                 _authService = authService;
             }
 
-            public async Task<DataResult<AuthResultDto>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(LoginUserCommand request, CancellationToken cancellationToken)
             {
                 var user = await _userRepository.GetAsync(x => x.Username == request.Username);
                 if (user is null || !HashingHelper.VerifyPasswordHash(request.Password, user.PasswordSalt, user.PasswordHash))

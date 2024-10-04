@@ -14,6 +14,7 @@
         public static string EmailAlreadyExist = "Email Already Exist";
         public static string MobilePhoneAlreadyExist = "MobilePhone Already Exist";
 
+        public static string RecordDoesNotExist = "Record Does Not Exist";
         public static string CannotBeEmpty = "Cannot Be Empty";
         public static string MustBeCharacter = "Must Be {0} Character";
         public static string MustBeBetweenCharacter = "Must Be Between {0} - {1} Character";

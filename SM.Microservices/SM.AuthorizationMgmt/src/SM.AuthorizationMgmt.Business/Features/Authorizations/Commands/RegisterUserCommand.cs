@@ -11,7 +11,7 @@ using SM.Core.Utilities.Security.Hashing;
 
 namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Commands
 {
-    public class RegisterUserCommand : IRequest<DataResult<AuthResultDto>>
+    public class RegisterUserCommand : IRequest<IResult>
     {
         public string Username { get; set; }
         public long CitizenId { get; set; }
@@ -22,7 +22,7 @@ namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Commands
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
 
-        public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, DataResult<AuthResultDto>>
+        public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, IResult>
         {
             private readonly IUserRepository _userRepository;
             private readonly IAuthService _authService;
@@ -32,7 +32,7 @@ namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Commands
                 _authService = authService;
             }
 
-            public async Task<DataResult<AuthResultDto>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
             {
                 if (!request.Password.Equals(request.ConfirmPassword, StringComparison.OrdinalIgnoreCase))
                     return new ErrorDataResult<AuthResultDto>(Messages.PasswordsDoNotMatch);
