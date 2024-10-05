@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 namespace SM.ProductMgmt.Business.Test.Features.Categories.Commands
 {
     [TestFixture]
-    public class UpdateCateogryCommandTest
+    public class UpdateCategoryCommandTest
     {
         private UpdateCategoryCommand _updateCategoryCommand;
         private UpdateCategoryCommand.UpdateCategoryCommandHandler _updateCategoryCommandHandler;

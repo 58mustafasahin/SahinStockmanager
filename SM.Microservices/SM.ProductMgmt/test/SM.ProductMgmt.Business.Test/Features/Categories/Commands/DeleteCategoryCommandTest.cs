@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 namespace SM.ProductMgmt.Business.Test.Features.Categories.Commands
 {
     [TestFixture]
-    public class DeleteCateogryCommandTest
+    public class DeleteCategoryCommandTest
     {
         private DeleteCategoryCommand _deleteCategoryCommand;
         private DeleteCategoryCommand.DeleteCategoryCommandHandler _deleteCategoryCommandHandler;

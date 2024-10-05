@@ -8,7 +8,7 @@ using SM.ProductMgmt.Domain.Concrete;
 namespace SM.ProductMgmt.Business.Test.Features.Categories.Commands
 {
     [TestFixture]
-    public class CreateCateogryCommandTest
+    public class CreateCategoryCommandTest
     {
         private CreateCategoryCommand _createCategoryCommand;
         private CreateCategoryCommand.CreateCategoryCommandHandler _createCategoryCommandHandler;
