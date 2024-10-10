@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SM.ProductMgmt.Business\SM.ProductMgmt.Business.csproj" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SM.WarehouseMgmt.Business\SM.WarehouseMgmt.Business.csproj" />
   </ItemGroup>
 
 </Project>
