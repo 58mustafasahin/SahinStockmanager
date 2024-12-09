@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace SM.Warehouse.Business.Test
+namespace SM.WarehouseMgmt.Business.Test
 {
     [SetUpFixture]
     public class GlobalSetupFixture

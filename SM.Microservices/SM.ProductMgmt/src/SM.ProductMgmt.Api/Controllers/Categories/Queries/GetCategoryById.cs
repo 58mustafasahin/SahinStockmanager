@@ -6,9 +6,9 @@ namespace SM.ProductMgmt.Api.Controllers.Categories
     public partial class CategoryController
     {
         [HttpGet("api/category/getbyid")]
-        public async Task<ActionResult> GetCategoryById([FromQuery] GetCategoryByIdQuery command)
+        public async Task<ActionResult> GetCategoryById([FromQuery] GetCategoryByIdQuery query)
         {
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send(query);
             if (result.Success)
             {
                 return Ok(result);
