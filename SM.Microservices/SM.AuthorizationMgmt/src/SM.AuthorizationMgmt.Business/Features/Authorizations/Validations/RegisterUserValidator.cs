@@ -11,10 +11,14 @@ namespace SM.AuthorizationMgmt.Business.Features.Authorizations.Validations
             RuleFor(x => x.Username)
                 .NotEmpty().WithMessage("{PropertyName} " + Messages.CannotBeEmpty)
                 .Length(2, 100).WithMessage("{PropertyName} " + string.Format(Messages.MustBeBetweenCharacter, "{MinLength}", "{MaxLength}"));
+
             RuleFor(x => x.CitizenId)
                 .NotEmpty().WithMessage("{PropertyName} " + Messages.CannotBeEmpty)
-                .Must(Be11Digits).WithMessage("{PropertyName} " + string.Format(Messages.MustBeCharacter, "{MinLength}"))
-                .Must(ValidateCitizenId).WithMessage("{PropertyName} " + Messages.IsNotValid);
+                .Must(Be11Digits).WithMessage("{PropertyName} " + string.Format(Messages.MustBeCharacter, "11"));
+            RuleFor(x => x.CitizenId)
+                .Must(ValidateCitizenId).WithMessage("{PropertyName} " + Messages.IsNotValid)
+                .When(x => Be11Digits(x.CitizenId));
+
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage("{PropertyName} " + Messages.CannotBeEmpty)
                 .Length(2, 100).WithMessage("{PropertyName} " + string.Format(Messages.MustBeBetweenCharacter, "{MinLength}", "{MaxLength}"));
